@@ -1,0 +1,77 @@
+{
+  "name": "taller-unit-testing-jest",
+  "version": "1.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "build-watch": "ng build --watch",
+    "build-prod": "ng build --prod",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --runInBand",
+    "lint": "tsc --noEmit && eslint . --ext js,ts,json --quiet --fix",
+    "cypress:open": "cypress open",
+    "prettier:check": "prettier --check src/**/*.{js,ts,json,css,scss}",
+    "prettier:write": "prettier --write src/**/*.{js,ts,json,css,scss}",
+    "check-commit": "node check-commit.js",
+    "postinstall": "ngcc"
+  },
+  "author": {
+    "name": "Web Platform IT Digital Vodafone Spain"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ivandpazd/unit-testing.git"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^10.0.7",
+    "@angular/common": "^10.0.7",
+    "@angular/compiler": "^10.0.7",
+    "@angular/core": "^10.0.7",
+    "@angular/forms": "^10.0.7",
+    "@angular/platform-browser": "^10.0.7",
+    "@angular/platform-browser-dynamic": "^10.0.7",
+    "@angular/router": "^10.0.7",
+    "@ngrx/store": "^9.2.0",
+    "@typescript-eslint/parser": "^3.7.1",
+    "rxjs": "~6.5.4",
+    "ts-jest": "^26.1.4",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.10.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.1000.5",
+    "@angular/cli": "^10.0.5",
+    "@angular/compiler-cli": "^10.0.7",
+    "@angular/language-service": "^10.0.7",
+    "@types/jest": "^26.0.8",
+    "@types/node": "^12.12.53",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "codelyzer": "^5.1.2",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.2",
+    "jest": "^26.2.2",
+    "jest-preset-angular": "^8.2.1",
+    "prettier": "^2.0.5",
+    "prettier-eslint": "^11.0.0",
+    "ts-node": "~8.3.0",
+    "tslint": "^6.1.3",
+    "typescript": "^3.9.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier:write && git add . && ng lint && ng build",
+      "commit-msg": "npm run check-commit"
+    }
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": "^12.0.0",
+    "npm": "^6.0.0"
+  }
+}

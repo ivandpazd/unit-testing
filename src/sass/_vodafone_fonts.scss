@@ -1,0 +1,30 @@
+// FONTS
+@font-face {
+	font-family: VodafoneLight;
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://www.vodafone.es/c/statics/fonts/vodafone-light.eot);
+	src: url(https://www.vodafone.es/c/statics/fonts/vodafone-light.eot#ie-fix) format('embedded-opentype'),
+		url(https://www.vodafone.es/c/statics/fonts/vodafone-light.woff) format('woff'),
+		url('/assets/fonts/vodafone-light.woff') format('woff');
+}
+
+@font-face {
+	font-family: VodafoneRegular;
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://www.vodafone.es/c/statics/fonts/vodafone-regular.eot);
+	src: url(https://www.vodafone.es/c/statics/fonts/vodafone-regular.eot#ie-fix) format('embedded-opentype'),
+		url(https://www.vodafone.es/c/statics/fonts/vodafone-regular.woff) format('woff'),
+		url('/assets/fonts/vodafone-regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: VodafoneRegularBold;
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://www.vodafone.es/c/statics/fonts/vodafonergbd-webfont.eot);
+	src: url(https://www.vodafone.es/c/statics/fonts/vodafonergbd-webfont.eot#ie-fix) format('embedded-opentype'),
+		url(https://www.vodafone.es/c/statics/fonts/vodafonergbd-webfont.woff) format('woff'),
+		url('/assets/fonts/vodafone-bold.woff') format('woff');
+}
