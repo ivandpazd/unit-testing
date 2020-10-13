@@ -1,0 +1,37 @@
+<div class="custom-wrapper">
+  <form [formGroup]="countryForm" (ngSubmit)="onSubmit()">
+    <div class="mva10-o-layout">
+      <div class="mva10-o-layout__item mva10-u--1/8">
+        <div>
+          <mva10-c-select-field [label]="'Country'" [listItems]="countriesList" (clickEvent)="getCountry($event)">
+          </mva10-c-select-field>
+        </div>
+      </div>
+      <div class="mva10-o-layout__item mva10-u--1/8">
+        <div>
+          <mva10-c-select-field [label]="'Date Init'" [listItems]="dateInitList" (clickEvent)="getDateInit($event)">
+          </mva10-c-select-field>
+        </div>
+      </div>
+      <div class="mva10-o-layout__item mva10-u--1/8">
+        <div>
+          <mva10-c-select-field [label]="'Date End'" [listItems]="dateEndList" (clickEvent)="getDateEnd($event)">
+          </mva10-c-select-field>
+        </div>
+      </div>
+      <div class="mva10-o-layout__item mva10-u--1/8">
+        <div>
+          <mva10-c-button [body]="'Search'" (mva10OnClick)="onSubmit()" [name]="'name'" [title]="'title'" [type]=""
+            [disabled]="false"></mva10-c-button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div *ngIf="showResult" class="mva10-o-layout">
+    <div class="mva10-o-layout__item mva10-u--1/8">
+      <div>
+        Formatear resultados
+      </div>
+    </div>
+  </div>
+</div>

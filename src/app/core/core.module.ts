@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from './components/header/header.component';
+import { CovidService } from './services/covid.service';
+import { GenericModule } from 'mva10-angular';
 
 @NgModule({
-	declarations: [],
-	imports: [CommonModule]
+	declarations: [HeaderComponent],
+	providers: [CovidService],
+	imports: [CommonModule, GenericModule],
+	exports: [HeaderComponent]
 })
-export class CoreModule {}
+export class MainCoreModule {}

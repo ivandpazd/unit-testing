@@ -37,6 +37,7 @@
     "@angular/router": "^10.0.7",
     "@ngrx/store": "^9.2.0",
     "@typescript-eslint/parser": "^3.7.1",
+    "mva10-angular": "git+https://f64e9e4f65ff99f23a926b077a0b341219d22e42@github.vodafone.com/VFES-MyVodafone/VFES-MV10-WEB-LIB.git#integration/6.6",
     "rxjs": "~6.5.4",
     "ts-jest": "^26.1.4",
     "tslib": "^2.0.0",
