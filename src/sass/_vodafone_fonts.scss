@@ -28,3 +28,12 @@
 		url(https://www.vodafone.es/c/statics/fonts/vodafonergbd-webfont.woff) format('woff'),
 		url('/assets/fonts/vodafone-bold.woff') format('woff');
 }
+
+@font-face {
+	font-family: 'VodafoneIcon';
+	src: url('../assets/fonts/svg/mvf-icon-font.svg?1507547902#mvf-icon-font') format('svg');
+	src: url('../assets/fonts/ttf/mvf-icon-font.ttf?1507547902') format('truetype'),
+		url('../assets/fonts/woff/mvf-icon-font.woff?1507547908') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}

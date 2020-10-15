@@ -38,8 +38,9 @@
 }
 
 .vfes-select .vfes-select-text:after {
-	content: '▼';
+	content: '\f1af';
 	width: 3rem;
+	font-family: 'VodafoneIcon';
 	right: 0;
 	font-size: 1rem;
 	line-height: 55px;
