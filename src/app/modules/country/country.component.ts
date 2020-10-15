@@ -10,7 +10,10 @@ import { CovidService } from '../../core/services/covid.service';
 })
 export class CountryComponent implements OnInit {
 	public countryForm: FormGroup;
-	public showResult: boolean;
+	public showResult: boolean = false;
+	public country: string;
+	public dateTo: string;
+	public dateFrom: string;
 	public countriesList: Array<Mva10SelectFieldModel> = [
 		{ value: 'spain', name: 'Spain', checked: false },
 		{ value: 'france', name: 'France', checked: false },
@@ -30,23 +33,18 @@ export class CountryComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.countryForm = new FormGroup({
-			country: new FormControl(''),
-			dateInit: new FormControl(''),
-			dateEnd: new FormControl('')
-		});
+		this._initCountryFrom();
 	}
 
-	getCountry(event: Event) {
+	public getCountry(event: string) {
 		this.countryForm.controls['country'].setValue(event);
 	}
 
-	getDateInit(event: Event) {
-		console.log(event);
+	public getDateInit(event: string) {
 		this.countryForm.controls['dateInit'].setValue(event);
 	}
 
-	getDateEnd(event: Event) {
+	public getDateEnd(event: string) {
 		this.countryForm.controls['dateEnd'].setValue(event);
 	}
 
@@ -54,5 +52,15 @@ export class CountryComponent implements OnInit {
 		console.log(event);
 	}
 
-	onSubmit() {}
+	onSubmit() {
+		this.covidService.getCountryByDate(this.country, this.dateTo, this.dateFrom);
+	}
+
+	private _initCountryFrom() {
+		this.countryForm = new FormGroup({
+			country: new FormControl(''),
+			dateInit: new FormControl(''),
+			dateEnd: new FormControl('')
+		});
+	}
 }
