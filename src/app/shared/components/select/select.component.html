@@ -1,0 +1,13 @@
+<div class="vfes-select" (click)="open = !open">
+  <button id="docum_type" name="select" type="button" aria-label="Selector de opciones" class="vfes-select-button">
+    <span class="vfes-select-text">
+      {{ value }}
+    </span>
+  </button>
+  <ul *ngIf="open" class="dropdown-menu vfes-select-list" role="listbox" aria-roledescription="Listado de opciones">
+    <li *ngFor="let option of options" class="vfes-select-option" role="option" (click)="emitDocumentType(option)"
+      [attr.aria-label]="option.text"><a role="option" class="no_decoration" [attr.aria-label]="option.text" href="#">
+        {{ option.text }}</a>
+    </li>
+  </ul>
+</div>

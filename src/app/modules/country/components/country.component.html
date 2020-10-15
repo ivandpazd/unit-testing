@@ -2,21 +2,13 @@
   <form [formGroup]="countryForm" (ngSubmit)="onSubmit()">
     <div class="mva10-o-layout">
       <div class="mva10-o-layout__item mva10-u--1/8">
-        <div>
-          <mva10-c-select-field [label]="'Country'" [listItems]="countriesList" (clickEvent)="getCountry($event)">
-          </mva10-c-select-field>
-        </div>
+        <app-select [text]="countriesSelect.text" [options]="countriesSelect.options"
+          (selectedValue)="getCountry($event)"></app-select>
       </div>
       <div class="mva10-o-layout__item mva10-u--1/8">
         <div>
-          <mva10-c-select-field [label]="'Date Init'" [listItems]="dateInitList" (clickEvent)="getDateInit($event)">
-          </mva10-c-select-field>
-        </div>
-      </div>
-      <div class="mva10-o-layout__item mva10-u--1/8">
-        <div>
-          <mva10-c-select-field [label]="'Date End'" [listItems]="dateEndList" (clickEvent)="getDateEnd($event)">
-          </mva10-c-select-field>
+          <app-select [text]="dateInitList.text" [options]="dateInitList.options"
+          (selectedValue)="getDate($event)"></app-select>
         </div>
       </div>
       <div class="mva10-o-layout__item mva10-u--1/8">
