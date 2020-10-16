@@ -1,6 +1,7 @@
+import { isGeneratedFile } from '@angular/compiler/src/aot/util';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Mva10SelectFieldModel } from 'mva10-angular';
+import { debug } from 'console';
 import { CovidService } from '../../../core/services/covid.service';
 
 @Component({
@@ -11,12 +12,20 @@ import { CovidService } from '../../../core/services/covid.service';
 export class CountryComponent implements OnInit {
 	public countryForm: FormGroup;
 	public showResult: boolean;
+	public covidDataTotal: any = {};
+	public allDatesInfo = {
+		positive_confirmed: 0,
+		deaths: 0,
+		intensive_care: 0,
+		recovered: 0
+	};
+
 	public countriesSelect = {
 		text: 'Country',
 		options: [
-			{ value: 'spain', text: 'Spain' },
-			{ value: 'france', text: 'France' },
-			{ value: 'italy', text: 'Italy' }
+			{ value: 'Spain', text: 'Spain' },
+			{ value: 'France', text: 'France' },
+			{ value: 'Italy', text: 'Italy' }
 		]
 	};
 	public dateInitList = {
@@ -36,8 +45,8 @@ export class CountryComponent implements OnInit {
 	ngOnInit(): void {
 		this.countryForm = new FormGroup({
 			country: new FormControl(''),
-			dateInit: new FormControl(''),
-			dateEnd: new FormControl('')
+			dateFrom: new FormControl(''),
+			dateTo: new FormControl('')
 		});
 	}
 
@@ -69,5 +78,22 @@ export class CountryComponent implements OnInit {
 		this.countryForm.controls['dateTo'].setValue(date_to);
 	}
 
-	onSubmit() {}
+	onSubmit() {
+		this.covidService
+			.getCountryByDate(this.countryForm.value['country'], this.countryForm.value['dateFrom'], this.countryForm.value['dateTo'])
+			.subscribe((covidData) => {
+				if (covidData) {
+					this.showResult = true;
+					let values = Object.values(covidData.dates);
+					for (let i = 0; i < Object.keys(covidData.dates).length - 1; i++) {
+						let dayValues = values[i]['countries'][this.countryForm.value['country']];
+
+						this.allDatesInfo.positive_confirmed += dayValues.today_new_confirmed;
+						this.allDatesInfo.deaths += dayValues.today_new_deaths;
+						this.allDatesInfo.intensive_care += dayValues.today_new_intensive_care;
+						this.allDatesInfo.recovered += dayValues.today_new_recovered;
+					}
+				}
+			});
+	}
 }

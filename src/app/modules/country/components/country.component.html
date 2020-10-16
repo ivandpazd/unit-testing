@@ -1,4 +1,9 @@
 <div class="custom-wrapper">
+  <div class="mva10-o-layout">
+    <div class="mva10-o-layout__item mva10-u--1/2">
+      <p class="mva10-u-heading--4">Search Data by Country</p>
+    </div>
+  </div>
   <form [formGroup]="countryForm" (ngSubmit)="onSubmit()">
     <div class="mva10-o-layout">
       <div class="mva10-o-layout__item mva10-u--1/8">
@@ -7,8 +12,8 @@
       </div>
       <div class="mva10-o-layout__item mva10-u--1/8">
         <div>
-          <app-select [text]="dateInitList.text" [options]="dateInitList.options"
-          (selectedValue)="getDate($event)"></app-select>
+          <app-select [text]="dateInitList.text" [options]="dateInitList.options" (selectedValue)="getDate($event)">
+          </app-select>
         </div>
       </div>
       <div class="mva10-o-layout__item mva10-u--1/8">
@@ -19,10 +24,50 @@
       </div>
     </div>
   </form>
-  <div *ngIf="showResult" class="mva10-o-layout">
-    <div class="mva10-o-layout__item mva10-u--1/8">
-      <div>
-        Formatear resultados
+  <div class="results">
+
+    <div *ngIf="showResult" class="mva10-o-layout results_header">
+      <div class="mva10-o-layout__item mva10-u--1/4">
+        <div>
+          <p class="mva10-u-heading--4">Positive Confirmed</p>
+        </div>
+      </div>
+      <div class="mva10-o-layout__item mva10-u--1/4">
+        <div>
+          <p class="mva10-u-heading--4">Deaths</p>
+        </div>
+      </div>
+      <div class="mva10-o-layout__item mva10-u--1/4">
+        <div>
+          <p class="mva10-u-heading--4">Intensive Care</p>
+        </div>
+      </div>
+      <div class="mva10-o-layout__item mva10-u--1/4">
+        <div>
+          <p class="mva10-u-heading--4">Recovered</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="showResult" class="mva10-o-layout">
+      <div class="mva10-o-layout__item mva10-u--1/4">
+        <div>
+          <p class="mva10-u-heading--4">{{allDatesInfo.positive_confirmed}}</p>
+        </div>
+      </div>
+      <div class="mva10-o-layout__item mva10-u--1/4">
+        <div>
+          <p class="mva10-u-heading--4">{{allDatesInfo.deaths}}</p>
+        </div>
+      </div>
+      <div class="mva10-o-layout__item mva10-u--1/4">
+        <div>
+          <p class="mva10-u-heading--4">{{allDatesInfo.intensive_care}}</p>
+        </div>
+      </div>
+      <div class="mva10-o-layout__item mva10-u--1/4">
+        <div>
+          <p class="mva10-u-heading--4">{{allDatesInfo.recovered}}</p>
+        </div>
       </div>
     </div>
   </div>

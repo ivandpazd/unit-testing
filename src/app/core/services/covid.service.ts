@@ -10,7 +10,7 @@ export class CovidService {
 	constructor(private _http: HttpClient) {}
 
 	public getCountryByDate(country: string, dateTo: string, dateFrom: string): Observable<any> {
-		const options = CovidService.setDateOptions(dateTo, dateFrom);
+		const options = CovidService.setDateOptions(dateFrom, dateTo);
 		const url = API.COUNTRY_BY_DATE.replace('{{country}}', country);
 		return this._http.get(url, options);
 	}
@@ -23,9 +23,7 @@ export class CovidService {
 	}
 
 	private static setDateOptions(dateTo: string, dateFrom: string): { params: HttpParams } {
-		const params: HttpParams = new HttpParams();
-		params.append('date_to', dateTo);
-		params.append('date_from', dateFrom);
+		const params: HttpParams = new HttpParams().append('date_from', dateFrom).append('date_to', dateTo);
 		return {
 			params: params
 		};
