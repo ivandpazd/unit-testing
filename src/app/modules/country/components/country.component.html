@@ -6,17 +6,17 @@
   </div>
   <form [formGroup]="countryForm" (ngSubmit)="onSubmit()">
     <div class="mva10-o-layout">
-      <div class="mva10-o-layout__item mva10-u--1/8">
+      <div class="mva10-o-layout__item mva10-u--2/12">
         <app-select [text]="countriesSelect.text" [options]="countriesSelect.options"
           (selectedValue)="getCountry($event)"></app-select>
       </div>
-      <div class="mva10-o-layout__item mva10-u--1/8">
+      <div class="mva10-o-layout__item mva10-u--2/12">
         <div>
           <app-select [text]="dateInitList.text" [options]="dateInitList.options" (selectedValue)="getDate($event)">
           </app-select>
         </div>
       </div>
-      <div class="mva10-o-layout__item mva10-u--1/8">
+      <div class="mva10-o-layout__item mva10-u--2/12">
         <div>
           <mva10-c-button [body]="'Search'" (mva10OnClick)="onSubmit()" [name]="'name'" [title]="'title'" [type]=""
             [disabled]="countryForm.invalid"></mva10-c-button>
