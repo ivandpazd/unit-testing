@@ -1,14 +1,18 @@
 <div class="custom-wrapper">
   <div class="mva10-o-layout">
     <div class="mva10-o-layout__item mva10-u--1/2">
-      <p class="mva10-u-heading--4">Search Data by Country</p>
+      <p class="mva10-u-heading--4">Search Data by Region</p>
     </div>
   </div>
-  <form [formGroup]="countryForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="regionForm" (ngSubmit)="onSubmit()">
     <div class="mva10-o-layout">
       <div class="mva10-o-layout__item mva10-u--1/8">
         <app-select [text]="countriesSelect.text" [options]="countriesSelect.options"
           (selectedValue)="getCountry($event)"></app-select>
+      </div>
+      <div class="mva10-o-layout__item mva10-u--1/8">
+        <app-select [text]="regionsSelect.text" [options]="regionsSelect.options" (selectedValue)="getRegion($event)">
+        </app-select>
       </div>
       <div class="mva10-o-layout__item mva10-u--1/8">
         <div>
@@ -19,13 +23,13 @@
       <div class="mva10-o-layout__item mva10-u--1/8">
         <div>
           <mva10-c-button [body]="'Search'" (mva10OnClick)="onSubmit()" [name]="'name'" [title]="'title'" [type]=""
-            [disabled]="countryForm.invalid"></mva10-c-button>
+            [disabled]="regionForm.invalid"></mva10-c-button>
         </div>
       </div>
     </div>
   </form>
   <div class="results">
-
+    <app-loading *ngIf="!isRegionsLoaded"></app-loading>
     <app-loading *ngIf="!isLoad"></app-loading>
     <div *ngIf="showResult && isLoad" class="mva10-o-layout results_header">
       <div class="mva10-o-layout__item mva10-u--1/4">

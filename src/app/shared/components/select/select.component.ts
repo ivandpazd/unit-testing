@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { SelectOption } from '../../models/select';
 
@@ -7,9 +7,10 @@ import { SelectOption } from '../../models/select';
 	templateUrl: './select.component.html',
 	styleUrls: ['./select.component.scss']
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent implements OnChanges {
 	public open: boolean = false;
 	public value: string = '';
+	public disabled: boolean = false;
 
 	@Input() text: string;
 	@Input() options: Array<SelectOption>;
@@ -17,8 +18,13 @@ export class SelectComponent implements OnInit {
 
 	constructor() {}
 
-	ngOnInit(): void {
+	ngOnChanges() {
 		this.value = this.text;
+		if (this.options.length < 1) {
+			this.disabled = true;
+		} else {
+			this.disabled = false;
+		}
 	}
 
 	public emitDocumentType(option: SelectOption): void {

@@ -5,14 +5,16 @@ import { GLOBAL_CONST } from '../../../global/constants';
 import { EventEmitterService } from '../../../shared/services/event.emitter.service';
 
 @Component({
-	selector: 'app-country',
-	templateUrl: './country.component.html',
-	styleUrls: ['./country.component.scss']
+	selector: 'app-region',
+	templateUrl: './region.component.html',
+	styleUrls: ['./region.component.scss']
 })
-export class CountryComponent implements OnInit {
-	public countryForm: FormGroup;
+export class RegionComponent implements OnInit {
+	public regionForm: FormGroup;
 	public showResult: boolean;
+	public covidDataTotal: any = {};
 	public isLoad: boolean = true;
+	public isRegionsLoaded: boolean = true;
 
 	public allDatesInfo = {
 		positive_confirmed: 0,
@@ -29,6 +31,11 @@ export class CountryComponent implements OnInit {
 			{ value: 'Italy', text: 'Italy' }
 		]
 	};
+
+	public regionsSelect = {
+		text: 'Regions',
+		options: []
+	};
 	public dateInitList = {
 		text: 'Period',
 		options: [
@@ -44,15 +51,38 @@ export class CountryComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.countryForm = new FormGroup({
+		this.regionForm = new FormGroup({
 			country: new FormControl('', Validators.required),
+			region: new FormControl('', Validators.required),
 			dateFrom: new FormControl('', Validators.required),
 			dateTo: new FormControl('', Validators.required)
 		});
 	}
 
-	getCountry(event: Event) {
-		this.countryForm.controls['country'].setValue(event);
+	getCountry(country: string) {
+		this.regionForm.controls['country'].setValue(country);
+		this.getRegionsByCountry(country);
+	}
+
+	getRegionsByCountry(country: string) {
+		this.isRegionsLoaded = false;
+		EventEmitterService.get(GLOBAL_CONST.EVENT_LOADING).emit(GLOBAL_CONST.TURN_ON);
+		this.covidService.getRegionsByCountry(country).subscribe((regions) => {
+			if (regions) {
+				this.regionsSelect.options = [];
+				regions['countries'][0][country].forEach((reg) => {
+					this.regionsSelect.options.push({ value: reg.id, text: reg.name });
+				});
+				this.isRegionsLoaded = true;
+				EventEmitterService.get(GLOBAL_CONST.EVENT_LOADING).emit(GLOBAL_CONST.TURN_ON);
+			} else {
+				this.regionsSelect.options = [];
+			}
+		});
+	}
+
+	getRegion(event: Event) {
+		this.regionForm.controls['region'].setValue(event);
 	}
 
 	getDate(event: number) {
@@ -75,8 +105,8 @@ export class CountryComponent implements OnInit {
 				break;
 		}
 
-		this.countryForm.controls['dateFrom'].setValue(date_from);
-		this.countryForm.controls['dateTo'].setValue(date_to);
+		this.regionForm.controls['dateFrom'].setValue(date_from);
+		this.regionForm.controls['dateTo'].setValue(date_to);
 	}
 
 	onSubmit() {
@@ -84,13 +114,18 @@ export class CountryComponent implements OnInit {
 		this.showResult = false;
 		EventEmitterService.get(GLOBAL_CONST.EVENT_LOADING).emit(GLOBAL_CONST.TURN_ON);
 		this.covidService
-			.getCountryByDate(this.countryForm.value['country'], this.countryForm.value['dateFrom'], this.countryForm.value['dateTo'])
+			.getRegionByDate(
+				this.regionForm.value['country'],
+				this.regionForm.value['region'],
+				this.regionForm.value['dateTo'],
+				this.regionForm.value['dateFrom']
+			)
 			.subscribe((covidData) => {
 				if (covidData) {
 					this.showResult = true;
 					let values = Object.values(covidData.dates);
 					for (let i = 0; i < Object.keys(covidData.dates).length - 1; i++) {
-						let dayValues = values[i]['countries'][this.countryForm.value['country']];
+						let dayValues = values[i]['countries'][this.regionForm.value['country']]['regions'][0];
 
 						this.allDatesInfo.positive_confirmed += dayValues.today_new_confirmed;
 						this.allDatesInfo.deaths += dayValues.today_new_deaths;

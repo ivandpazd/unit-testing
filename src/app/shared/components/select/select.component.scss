@@ -20,6 +20,11 @@
 	margin-bottom: 0;
 	background-color: #fff;
 	z-index: 10;
+
+	&_disabled {
+		background-color: #ebebeb;
+		cursor: not-allowed;
+	}
 }
 
 .vfes-select .vfes-select-text {
@@ -118,7 +123,7 @@
 }
 
 .vfes-select .vfes-select-option {
-	padding: 0.3125rem 1.25rem !important;
+	padding: 0 0 !important;
 	font-size: 1.25rem;
 }
 

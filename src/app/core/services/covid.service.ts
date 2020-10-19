@@ -22,6 +22,11 @@ export class CovidService {
 		return this._http.get(url, options);
 	}
 
+	public getRegionsByCountry(country: string) {
+		let url = API.REGIONS_BY_COUNTRY.replace('{{country}}', country);
+		return this._http.get(url);
+	}
+
 	private static setDateOptions(dateTo: string, dateFrom: string): { params: HttpParams } {
 		const params: HttpParams = new HttpParams().append('date_from', dateFrom).append('date_to', dateTo);
 		return {
