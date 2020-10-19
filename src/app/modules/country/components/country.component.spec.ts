@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CountryComponent } from './country.component';
-import { CovidService } from '../../core/services/covid.service';
+import { CovidService } from '../../../core/services/covid.service';
 import { CoreModule, GenericModule } from 'mva10-angular';
 
 jest.mock('../../core/services/covid.service');

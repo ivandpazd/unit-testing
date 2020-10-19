@@ -28,7 +28,7 @@ export class CovidService {
 	}
 
 	private static setDateOptions(dateTo: string, dateFrom: string): { params: HttpParams } {
-		const params: HttpParams = new HttpParams().append('date_from', dateFrom).append('date_to', dateTo);
+		const params: HttpParams = new HttpParams().set('date_from', dateFrom).set('date_to', dateTo);
 		return {
 			params: params
 		};
