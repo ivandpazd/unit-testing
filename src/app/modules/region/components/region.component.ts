@@ -37,7 +37,6 @@ export class RegionComponent implements OnInit {
 	public dateInitList = {
 		text: 'Period',
 		options: [
-			{ value: 1, text: 'Today' },
 			{ value: 7, text: '7 days' },
 			{ value: 15, text: '15 days' },
 			{ value: 30, text: '1 month' }
@@ -87,9 +86,6 @@ export class RegionComponent implements OnInit {
 
 		let date_from: string = '';
 		switch (event) {
-			case 1:
-				date_from = date_to;
-				break;
 			case 7:
 				date_from = today.getFullYear() + '-' + (today.getMonth() + 1).toString() + '-' + (today.getDate() - 7).toString();
 				break;
