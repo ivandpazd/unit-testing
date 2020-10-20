@@ -1,0 +1,84 @@
+{
+	"dates": {
+		"2020-10-13": {
+			"countries": {
+				"Spain": {
+					"today_new_confirmed": 7118,
+					"today_new_deaths": 80,
+					"today_new_intensive_care": 20,
+					"today_new_recovered": 9
+				}
+			}
+		},
+		"2020-10-14": {
+			"countries": {
+				"Spain": {
+					"today_new_confirmed": 11970,
+					"today_new_deaths": 209,
+					"today_new_intensive_care": 20,
+					"today_new_recovered": 9
+				}
+			}
+		},
+		"2020-10-15": {
+			"countries": {
+				"Spain": {
+					"today_new_confirmed": 13318,
+					"today_new_deaths": 140,
+					"today_new_intensive_care": 20,
+					"today_new_recovered": 9
+				}
+			}
+		},
+		"2020-10-16": {
+			"countries": {
+				"Spain": {
+					"today_new_confirmed": 15186,
+					"today_new_deaths": 222,
+					"today_new_intensive_care": 20,
+					"today_new_recovered": 9
+				}
+			}
+		},
+		"2020-10-17": {
+			"countries": {
+				"Spain": {
+					"today_new_confirmed": 0,
+					"today_new_deaths": 0,
+					"today_new_intensive_care": 20,
+					"today_new_recovered": 9
+				}
+			}
+		},
+		"2020-10-18": {
+			"countries": {
+				"Spain": {
+					"today_new_confirmed": 0,
+					"today_new_deaths": 0,
+					"today_new_intensive_care": 20,
+					"today_new_recovered": 9
+				}
+			}
+		},
+		"2020-10-19": {
+			"countries": {
+				"Spain": {
+					"today_new_confirmed": 37889,
+					"today_new_deaths": 217,
+					"today_new_intensive_care": 20,
+					"today_new_recovered": 9
+				}
+			}
+		},
+		"2020-10-20": {
+			"countries": {
+				"Spain": {
+					"today_new_confirmed": 37889,
+					"today_new_deaths": 217,
+					"today_new_intensive_care": 20,
+					"today_new_recovered": 9
+				}
+			}
+		}
+	}
+}
