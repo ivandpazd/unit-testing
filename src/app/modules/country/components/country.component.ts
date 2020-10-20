@@ -39,7 +39,7 @@ export class CountryComponent implements OnInit {
 		]
 	};
 
-	constructor(private covidService: CovidService) {
+	constructor(public covidService: CovidService) {
 		this.showResult = false;
 	}
 
@@ -51,7 +51,7 @@ export class CountryComponent implements OnInit {
 		});
 	}
 
-	getCountry(event: Event) {
+	getCountry(event: String) {
 		this.countryForm.controls['country'].setValue(event);
 	}
 
@@ -86,6 +86,7 @@ export class CountryComponent implements OnInit {
 		this.covidService
 			.getCountryByDate(this.countryForm.value['country'], this.countryForm.value['dateFrom'], this.countryForm.value['dateTo'])
 			.subscribe((covidData) => {
+				console.log(covidData);
 				if (covidData) {
 					this.showResult = true;
 					let values = Object.values(covidData.dates);
