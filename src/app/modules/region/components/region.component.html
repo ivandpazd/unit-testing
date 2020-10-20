@@ -8,15 +8,15 @@
     <div class="mva10-o-layout">
       <div class="mva10-o-layout__item mva10-u--2/12">
         <app-select [text]="countriesSelect.text" [options]="countriesSelect.options"
-          (selectedValue)="getCountry($event)"></app-select>
+          (selectedValue)="setCountry($event)"></app-select>
       </div>
       <div class="mva10-o-layout__item mva10-u--2/12">
-        <app-select [text]="regionsSelect.text" [options]="regionsSelect.options" (selectedValue)="getRegion($event)">
+        <app-select [text]="regionsSelect.text" [options]="regionsSelect.options" (selectedValue)="setRegion($event)">
         </app-select>
       </div>
       <div class="mva10-o-layout__item mva10-u--2/12">
         <div>
-          <app-select [text]="dateInitList.text" [options]="dateInitList.options" (selectedValue)="getDate($event)">
+          <app-select [text]="dateInitList.text" [options]="dateInitList.options" (selectedValue)="setDate($event)">
           </app-select>
         </div>
       </div>

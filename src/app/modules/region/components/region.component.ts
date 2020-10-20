@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CovidService } from '../../../core/services/covid.service';
+import { CovidInfo } from '../../../shared/models/covidInfo';
 
 @Component({
 	selector: 'app-region',
@@ -14,12 +15,7 @@ export class RegionComponent implements OnInit {
 	public isLoad: boolean = true;
 	public isRegionsLoaded: boolean = true;
 
-	public allDatesInfo = {
-		positive_confirmed: 0,
-		deaths: 0,
-		intensive_care: 0,
-		recovered: 0
-	};
+	public allDatesInfo: CovidInfo;
 
 	public countriesSelect = {
 		text: 'Country',
@@ -43,8 +39,9 @@ export class RegionComponent implements OnInit {
 		]
 	};
 
-	constructor(private covidService: CovidService) {
+	constructor(public covidService: CovidService) {
 		this.showResult = false;
+		this.allDatesInfo = new CovidInfo();
 	}
 
 	ngOnInit(): void {
@@ -56,7 +53,7 @@ export class RegionComponent implements OnInit {
 		});
 	}
 
-	getCountry(country: string) {
+	setCountry(country: string) {
 		this.regionForm.controls['country'].setValue(country);
 		this.getRegionsByCountry(country);
 	}
@@ -70,17 +67,15 @@ export class RegionComponent implements OnInit {
 					this.regionsSelect.options.push({ value: reg.id, text: reg.name });
 				});
 				this.isRegionsLoaded = true;
-			} else {
-				this.regionsSelect.options = [];
 			}
 		});
 	}
 
-	getRegion(event: Event) {
-		this.regionForm.controls['region'].setValue(event);
+	setRegion(region: string) {
+		this.regionForm.controls['region'].setValue(region);
 	}
 
-	getDate(event: number) {
+	setDate(event: number) {
 		let today = new Date();
 		let date_to = today.getFullYear() + '-' + (today.getMonth() + 1).toString() + '-' + today.getDate().toString();
 

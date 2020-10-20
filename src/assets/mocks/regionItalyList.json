@@ -1,0 +1,281 @@
+{
+	"countries": [
+		{
+			"Italy": [
+				{
+					"id": "toscana",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/toscana/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Toscana",
+					"name_es": "Toscana",
+					"name_it": "Toscana"
+				},
+				{
+					"id": "calabria",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/calabria/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Calabria",
+					"name_es": "Calabria",
+					"name_it": "Calabria"
+				},
+				{
+					"id": "basilicata",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/basilicata/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Basilicata",
+					"name_es": "Basilicata",
+					"name_it": "Basilicata"
+				},
+				{
+					"id": "marche",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/marche/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Marche",
+					"name_es": "Marche",
+					"name_it": "Marche"
+				},
+				{
+					"id": "piemonte",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/piemonte/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Piemonte",
+					"name_es": "Piemonte",
+					"name_it": "Piemonte"
+				},
+				{
+					"id": "veneto",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/veneto/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Veneto",
+					"name_es": "Veneto",
+					"name_it": "Veneto"
+				},
+				{
+					"id": "campania",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/campania/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Campania",
+					"name_es": "Campania",
+					"name_it": "Campania"
+				},
+				{
+					"id": "molise",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/molise/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Molise",
+					"name_es": "Molise",
+					"name_it": "Molise"
+				},
+				{
+					"id": "puglia",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/puglia/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Puglia",
+					"name_es": "Puglia",
+					"name_it": "Puglia"
+				},
+				{
+					"id": "umbria",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/umbria/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Umbria",
+					"name_es": "Umbria",
+					"name_it": "Umbria"
+				},
+				{
+					"id": "pa_trento",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/pa_trento/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "P.A. Trento",
+					"name_es": "P.A. Trento",
+					"name_it": "P.A. Trento"
+				},
+				{
+					"id": "sardegna",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/sardegna/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Sardegna",
+					"name_es": "Sardegna",
+					"name_it": "Sardegna"
+				},
+				{
+					"id": "valle_daosta",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/valle_daosta/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Valle d'Aosta",
+					"name_es": "Valle d'Aosta",
+					"name_it": "Valle d'Aosta"
+				},
+				{
+					"id": "lazio",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/lazio/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Lazio",
+					"name_es": "Lazio",
+					"name_it": "Lazio"
+				},
+				{
+					"id": "friuli_venezia_giulia",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/friuli_venezia_giulia/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Friuli Venezia Giulia",
+					"name_es": "Friuli Venezia Giulia",
+					"name_it": "Friuli Venezia Giulia"
+				},
+				{
+					"id": "emilia-romagna",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/emilia-romagna/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Emilia-Romagna",
+					"name_es": "Emilia-Romagna",
+					"name_it": "Emilia-Romagna"
+				},
+				{
+					"id": "lombardia",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/lombardia/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Lombardia",
+					"name_es": "Lombardia",
+					"name_it": "Lombardia"
+				},
+				{
+					"id": "liguria",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/liguria/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Liguria",
+					"name_es": "Liguria",
+					"name_it": "Liguria"
+				},
+				{
+					"id": "abruzzo",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/abruzzo/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Abruzzo",
+					"name_es": "Abruzzo",
+					"name_it": "Abruzzo"
+				},
+				{
+					"id": "pa_bolzano",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/pa_bolzano/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "P.A. Bolzano",
+					"name_es": "P.A. Bolzano",
+					"name_it": "P.A. Bolzano"
+				},
+				{
+					"id": "sicilia",
+					"links": [
+						{
+							"href": "/api/countries/italy/regions/sicilia/sub_regions",
+							"rel": "regions",
+							"type": "GET"
+						}
+					],
+					"name": "Sicilia",
+					"name_es": "Sicilia",
+					"name_it": "Sicilia"
+				}
+			]
+		}
+	]
+}

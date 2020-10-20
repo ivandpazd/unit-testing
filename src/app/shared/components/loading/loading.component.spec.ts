@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoadingComponent } from './loading.component';
 
-jest.mock('../../services/event.emitter.service');
-
 describe('LoadingComponent', () => {
 	let component: LoadingComponent;
 	let fixture: ComponentFixture<LoadingComponent>;
