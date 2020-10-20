@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LoadingComponent } from './loading.component';
+
+jest.mock('../../services/event.emitter.service');
 
 describe('LoadingComponent', () => {
 	let component: LoadingComponent;
@@ -20,10 +21,5 @@ describe('LoadingComponent', () => {
 
 	it('should create', () => {
 		expect(component).toBeTruthy();
-	});
-
-	it('Should turn ON the spinner', () => {
-		component.callbackListener('on');
-		expect(component.show).toBeTruthy();
 	});
 });

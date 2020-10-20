@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CovidService } from '../../../core/services/covid.service';
-import { GLOBAL_CONST } from '../../../global/constants';
-import { EventEmitterService } from '../../../shared/services/event.emitter.service';
 
 @Component({
 	selector: 'app-country',
@@ -82,7 +80,6 @@ export class CountryComponent implements OnInit {
 	onSubmit() {
 		this.isLoad = false;
 		this.showResult = false;
-		EventEmitterService.get(GLOBAL_CONST.EVENT_LOADING).emit(GLOBAL_CONST.TURN_ON);
 		this.covidService
 			.getCountryByDate(this.countryForm.value['country'], this.countryForm.value['dateFrom'], this.countryForm.value['dateTo'])
 			.subscribe((covidData) => {
@@ -97,7 +94,6 @@ export class CountryComponent implements OnInit {
 						this.allDatesInfo.intensive_care += dayValues.today_new_intensive_care;
 						this.allDatesInfo.recovered += dayValues.today_new_recovered;
 					}
-					EventEmitterService.get(GLOBAL_CONST.EVENT_LOADING).emit(GLOBAL_CONST.TURN_OFF);
 					this.isLoad = true;
 				}
 			});

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CovidService } from '../../../core/services/covid.service';
-import { GLOBAL_CONST } from '../../../global/constants';
-import { EventEmitterService } from '../../../shared/services/event.emitter.service';
 
 @Component({
 	selector: 'app-region',
@@ -66,7 +64,6 @@ export class RegionComponent implements OnInit {
 
 	getRegionsByCountry(country: string) {
 		this.isRegionsLoaded = false;
-		EventEmitterService.get(GLOBAL_CONST.EVENT_LOADING).emit(GLOBAL_CONST.TURN_ON);
 		this.covidService.getRegionsByCountry(country).subscribe((regions) => {
 			if (regions) {
 				this.regionsSelect.options = [];
@@ -74,7 +71,6 @@ export class RegionComponent implements OnInit {
 					this.regionsSelect.options.push({ value: reg.id, text: reg.name });
 				});
 				this.isRegionsLoaded = true;
-				EventEmitterService.get(GLOBAL_CONST.EVENT_LOADING).emit(GLOBAL_CONST.TURN_ON);
 			} else {
 				this.regionsSelect.options = [];
 			}
@@ -112,7 +108,6 @@ export class RegionComponent implements OnInit {
 	onSubmit() {
 		this.isLoad = false;
 		this.showResult = false;
-		EventEmitterService.get(GLOBAL_CONST.EVENT_LOADING).emit(GLOBAL_CONST.TURN_ON);
 		this.covidService
 			.getRegionByDate(
 				this.regionForm.value['country'],
@@ -132,7 +127,6 @@ export class RegionComponent implements OnInit {
 						this.allDatesInfo.intensive_care += dayValues.today_new_intensive_care;
 						this.allDatesInfo.recovered += dayValues.today_new_recovered;
 					}
-					EventEmitterService.get(GLOBAL_CONST.EVENT_LOADING).emit(GLOBAL_CONST.TURN_OFF);
 					this.isLoad = true;
 				}
 			});

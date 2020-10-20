@@ -26,7 +26,7 @@
   </form>
   <div class="results">
 
-    <app-loading *ngIf="!isLoad"></app-loading>
+    <app-loading [show]="!isLoad" *ngIf="!isLoad"></app-loading>
     <div *ngIf="showResult && isLoad" class="mva10-o-layout results_header">
       <div class="mva10-o-layout__item mva10-u--1/4">
         <div>
