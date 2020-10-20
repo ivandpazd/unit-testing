@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,8 +10,7 @@ import { CoreModule, GenericModule } from 'mva10-angular';
 
 @NgModule({
 	declarations: [AppComponent],
-	imports: [BrowserModule, HttpClientModule, AppRoutingModule, CoreModule, GenericModule, MainCoreModule, SharedModule],
-	exports: [MainCoreModule],
+	imports: [RouterModule, BrowserModule, HttpClientModule, AppRoutingModule, CoreModule, GenericModule, MainCoreModule, SharedModule],
 	providers: [],
 	bootstrap: [AppComponent]
 })
