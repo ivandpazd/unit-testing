@@ -8,7 +8,7 @@ describe('EventEmitterService', () => {
 		TestBed.configureTestingModule({
 			providers: [EventEmitterService]
 		});
-		service = TestBed.inject(EventEmitterService);
+		service = new EventEmitterService();
 	});
 
 	it('should be created', () => {

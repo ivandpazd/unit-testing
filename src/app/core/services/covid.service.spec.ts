@@ -10,21 +10,9 @@ describe('CovidService', () => {
 	beforeEach(() => {
 		httpClient = new HttpClient({} as any);
 		covidService = new CovidService(httpClient);
-
-		jest.spyOn(httpClient, 'get');
 	});
 
 	it('should be created', () => {
 		expect(covidService).toBeTruthy();
-	});
-
-	it('should call getCountryByDate with the expected url', () => {
-		covidService.getCountryByDate('Spain', '2020-03-22', '2020-03-20');
-		expect(httpClient.get).toHaveBeenCalledWith('https://api.covid19tracking.narrativa.com/api/country/Spain');
-	});
-
-	it('should call getRegionByDate with the expected url', () => {
-		covidService.getRegionByDate('Spain', 'Madrid', '2020-03-22', '2020-03-20');
-		expect(httpClient.get).toHaveBeenCalledWith('https://api.covid19tracking.narrativa.com/api/country/Spain/region/Madrid');
 	});
 });
