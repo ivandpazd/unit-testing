@@ -21,4 +21,9 @@ describe('LoadingComponent', () => {
 	it('should create', () => {
 		expect(component).toBeTruthy();
 	});
+
+	it('Should turn ON the spinner', () => {
+		component.callbackListener('on');
+		expect(component.show).toBeTruthy();
+	});
 });

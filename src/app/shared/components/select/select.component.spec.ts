@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SelectComponent } from './select.component';
 
 describe('SelectComponent', () => {
@@ -20,5 +19,17 @@ describe('SelectComponent', () => {
 
 	it('should create', () => {
 		expect(component).toBeTruthy();
+	});
+
+	it('Should stablish value of select', () => {
+		component.emitDocumentType({ text: 'Spain', value: 'spain' });
+		expect(component.value).toBe('Spain');
+	});
+
+	it('Should emit the selected option by output', () => {
+		jest.spyOn(component.selectedValue, 'emit');
+		component.emitDocumentType({ text: 'Spain', value: 'spain' });
+
+		expect(component.selectedValue.emit).toHaveBeenCalled();
 	});
 });

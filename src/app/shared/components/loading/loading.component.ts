@@ -18,7 +18,7 @@ export class LoadingComponent implements OnInit {
 		});
 	}
 
-	private callbackListener(payload: string) {
+	public callbackListener(payload: string) {
 		this.show = payload === 'on';
 	}
 }
