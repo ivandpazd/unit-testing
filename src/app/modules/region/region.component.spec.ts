@@ -1,15 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CovidService } from '../../../core/services/covid.service';
+import { CovidService } from '../../core/services/covid.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegionComponent } from './region.component';
 import { GenericModule } from 'mva10-angular';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { of } from 'rxjs';
-import * as regionItalyList from '../../../../assets/mocks/regionItalyList.json';
-import * as regionSpainList from '../../../../assets/mocks/regionSpainList.json';
-import * as regionItalyVenetoDataMock from '../../../../assets/mocks/regionItalyVenetoDataMock.json';
+import * as regionItalyList from '../../../assets/mocks/regionItalyList.json';
+import * as regionSpainList from '../../../assets/mocks/regionSpainList.json';
+import * as regionItalyVenetoDataMock from '../../../assets/mocks/regionItalyVenetoDataMock.json';
 
-jest.mock('../../../core/services/covid.service');
+jest.mock('../../core/services/covid.service');
 
 describe('RegionComponent', () => {
 	let component: RegionComponent;
@@ -26,8 +26,6 @@ describe('RegionComponent', () => {
 
 	beforeEach(() => {
 		covidService = TestBed.inject(CovidService);
-		jest.spyOn(covidService, 'getRegionsByCountry').mockReturnValue(of(regionSpainList));
-		jest.spyOn(covidService, 'getRegionByDate').mockReturnValue(of(regionItalyVenetoDataMock));
 		fixture = TestBed.createComponent(RegionComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
@@ -38,6 +36,7 @@ describe('RegionComponent', () => {
 	});
 
 	it('should set correct country and get regions', () => {
+		jest.spyOn(covidService, 'getRegionsByCountry').mockReturnValue(of(regionSpainList));
 		component.setCountry('Spain');
 		expect(component.regionForm.value['country']).toBe('Spain');
 		expect(component.covidService.getRegionsByCountry).toHaveBeenCalled();
@@ -65,6 +64,7 @@ describe('RegionComponent', () => {
 	});
 
 	it('should submit data correctly', () => {
+		jest.spyOn(covidService, 'getRegionByDate').mockReturnValue(of(regionItalyVenetoDataMock));
 		jest.spyOn(covidService, 'getRegionsByCountry').mockReturnValue(of(regionItalyList));
 		component.setCountry('Italy');
 		component.setRegion('Veneto');

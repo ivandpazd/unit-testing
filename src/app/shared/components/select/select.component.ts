@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, Input, OnChanges, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { SelectOption } from '../../models/select';
 
@@ -20,11 +20,7 @@ export class SelectComponent implements OnChanges {
 
 	ngOnChanges() {
 		this.value = this.text;
-		if (this.options.length < 1) {
-			this.disabled = true;
-		} else {
-			this.disabled = false;
-		}
+		this.disabled = this.options.length < 1;
 	}
 
 	public emitDocumentType(option: SelectOption): void {

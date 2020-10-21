@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CountryComponent } from './country.component';
-import { CovidService } from '../../../core/services/covid.service';
-import { SharedModule } from '../../../shared/shared.module';
+import { CovidService } from '../../core/services/covid.service';
+import { SharedModule } from '../../shared/shared.module';
 import { GenericModule } from 'mva10-angular';
 import { of } from 'rxjs';
-import * as countriesMock from '../../../../assets/mocks/country.json';
+import * as countriesMock from '../../../assets/mocks/country.json';
 
-jest.mock('../../../core/services/covid.service');
+jest.mock('../../core/services/covid.service');
 
 describe('CountryComponent', () => {
 	let component: CountryComponent;
@@ -24,7 +24,6 @@ describe('CountryComponent', () => {
 
 	beforeEach(() => {
 		covidService = TestBed.inject(CovidService);
-		jest.spyOn(covidService, 'getCountryByDate').mockReturnValue(of(countriesMock));
 		fixture = TestBed.createComponent(CountryComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
@@ -61,6 +60,7 @@ describe('CountryComponent', () => {
 	});
 
 	it('should submit data correctly', () => {
+		jest.spyOn(covidService, 'getCountryByDate').mockReturnValue(of(countriesMock));
 		component.setCountry('Spain');
 		component.setDate(7);
 		component.onSubmit();

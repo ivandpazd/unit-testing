@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegionComponent } from './components/region.component';
+import { RegionComponent } from './region.component';
 
 const routes: Routes = [{ path: '', component: RegionComponent }];
 

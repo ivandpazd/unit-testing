@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CountryComponent } from './components/country.component';
+import { CountryComponent } from './country.component';
 import { CountryRoutingModule } from './country-routing.module';
 import { GenericModule } from 'mva10-angular';
 import { SharedModule } from '../../shared/shared.module';

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { CovidService } from '../../../core/services/covid.service';
-import { Select } from '../../../shared/models/select';
-import { CovidInfo } from '../../../shared/models/covidInfo';
+import { CovidService } from '../../core/services/covid.service';
+import { Select } from '../../shared/models/select';
+import { CovidInfo } from '../../shared/models/covidInfo';
 
 @Component({
 	selector: 'app-country',
@@ -46,11 +46,11 @@ export class CountryComponent implements OnInit {
 		});
 	}
 
-	setCountry(event: String) {
+	public setCountry(event: String): void {
 		this.countryForm.controls['country'].setValue(event);
 	}
 
-	setDate(event: number) {
+	public setDate(event: number): void {
 		let today = new Date();
 		let date_to = today.getFullYear() + '-' + (today.getMonth() + 1).toString() + '-' + today.getDate().toString();
 
@@ -71,7 +71,7 @@ export class CountryComponent implements OnInit {
 		this.countryForm.controls['dateTo'].setValue(date_to);
 	}
 
-	onSubmit() {
+	public onSubmit(): void {
 		this.isLoad = false;
 		this.showResult = false;
 		this.covidService

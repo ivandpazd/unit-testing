@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { CovidService } from '../../../core/services/covid.service';
-import { CovidInfo } from '../../../shared/models/covidInfo';
+import { CovidService } from '../../core/services/covid.service';
+import { CovidInfo } from '../../shared/models/covidInfo';
 
 @Component({
 	selector: 'app-region',
@@ -11,7 +11,6 @@ import { CovidInfo } from '../../../shared/models/covidInfo';
 export class RegionComponent implements OnInit {
 	public regionForm: FormGroup;
 	public showResult: boolean;
-	public covidDataTotal: any = {};
 	public isLoad: boolean = true;
 	public isRegionsLoaded: boolean = true;
 
@@ -30,6 +29,7 @@ export class RegionComponent implements OnInit {
 		text: 'Regions',
 		options: []
 	};
+
 	public dateInitList = {
 		text: 'Period',
 		options: [
@@ -53,12 +53,12 @@ export class RegionComponent implements OnInit {
 		});
 	}
 
-	setCountry(country: string) {
+	public setCountry(country: string): void {
 		this.regionForm.controls['country'].setValue(country);
 		this.getRegionsByCountry(country);
 	}
 
-	getRegionsByCountry(country: string) {
+	public getRegionsByCountry(country: string): void {
 		this.isRegionsLoaded = false;
 		this.covidService.getRegionsByCountry(country).subscribe((regions) => {
 			if (regions) {
@@ -71,11 +71,11 @@ export class RegionComponent implements OnInit {
 		});
 	}
 
-	setRegion(region: string) {
+	public setRegion(region: string): void {
 		this.regionForm.controls['region'].setValue(region);
 	}
 
-	setDate(event: number) {
+	public setDate(event: number): void {
 		let today = new Date();
 		let date_to = today.getFullYear() + '-' + (today.getMonth() + 1).toString() + '-' + today.getDate().toString();
 
@@ -96,7 +96,7 @@ export class RegionComponent implements OnInit {
 		this.regionForm.controls['dateTo'].setValue(date_to);
 	}
 
-	onSubmit() {
+	public onSubmit(): void {
 		this.isLoad = false;
 		this.showResult = false;
 		this.covidService
@@ -107,19 +107,17 @@ export class RegionComponent implements OnInit {
 				this.regionForm.value['dateFrom']
 			)
 			.subscribe((covidData) => {
-				if (covidData) {
-					this.showResult = true;
-					let values = Object.values(covidData.dates);
-					for (let i = 0; i < Object.keys(covidData.dates).length - 1; i++) {
-						let dayValues = values[i]['countries'][this.regionForm.value['country']]['regions'][0];
+				this.showResult = true;
+				let values = Object.values(covidData?.dates);
+				for (let i = 0; i < Object.keys(covidData?.dates).length - 1; i++) {
+					let dayValues = values[i]['countries'][this.regionForm.value['country']]['regions'][0];
 
-						this.allDatesInfo.positive_confirmed += dayValues.today_new_confirmed;
-						this.allDatesInfo.deaths += dayValues.today_new_deaths;
-						this.allDatesInfo.intensive_care += dayValues.today_new_intensive_care;
-						this.allDatesInfo.recovered += dayValues.today_new_recovered;
-					}
-					this.isLoad = true;
+					this.allDatesInfo.positive_confirmed += dayValues?.today_new_confirmed;
+					this.allDatesInfo.deaths += dayValues?.today_new_deaths;
+					this.allDatesInfo.intensive_care += dayValues?.today_new_intensive_care;
+					this.allDatesInfo.recovered += dayValues?.today_new_recovered;
 				}
+				this.isLoad = true;
 			});
 	}
 }
