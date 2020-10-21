@@ -75,7 +75,7 @@ export class CountryComponent implements OnInit {
 		this.isLoad = false;
 		this.showResult = false;
 		this.covidService
-			.getCountryByDate(this.countryForm.value['country'], this.countryForm.value['dateFrom'], this.countryForm.value['dateTo'])
+			.getCountryByDate(this.countryForm.value['country'], this.countryForm.value['dateTo'], this.countryForm.value['dateFrom'])
 			.subscribe((covidData) => {
 				let dates = Object.values(covidData.dates);
 				for (let i = 0; i < Object.keys(covidData.dates).length - 1; i++) {
