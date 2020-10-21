@@ -20,11 +20,4 @@ describe('SelectComponent', () => {
 	it('should create', () => {
 		expect(component).toBeTruthy();
 	});
-
-	it('Should emit the selected option by output', () => {
-		jest.spyOn(component.selectedValue, 'emit');
-		component.emitDocumentType({ text: 'Spain', value: 'spain' });
-		expect(component.value).toBe('Spain');
-		expect(component.selectedValue.emit).toHaveBeenCalledWith('spain');
-	});
 });
