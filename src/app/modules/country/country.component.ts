@@ -50,17 +50,15 @@ export class CountryComponent implements OnInit {
 		this.countryForm.controls['country'].setValue(event);
 	}
 
-	public setDate(event: number): void {
+	public setDate(range: number): void {
 		let today = new Date();
 		let date_to = today.getFullYear() + '-' + (today.getMonth() + 1).toString() + '-' + today.getDate().toString();
 
 		let date_from: string = '';
-		switch (event) {
+		switch (range) {
 			case 7:
-				date_from = today.getFullYear() + '-' + (today.getMonth() + 1).toString() + '-' + (today.getDate() - 7).toString();
-				break;
 			case 15:
-				date_from = today.getFullYear() + '-' + (today.getMonth() + 1).toString() + '-' + (today.getDate() - 15).toString();
+				date_from = today.getFullYear() + '-' + (today.getMonth() + 1).toString() + '-' + (today.getDate() - range).toString();
 				break;
 			case 30:
 				date_from = today.getFullYear() + '-' + today.getMonth().toString() + '-' + today.getDate().toString();
@@ -72,6 +70,7 @@ export class CountryComponent implements OnInit {
 	}
 
 	public onSubmit(): void {
+		this.resetData();
 		this.isLoad = false;
 		this.showResult = false;
 		this.covidService
@@ -88,5 +87,12 @@ export class CountryComponent implements OnInit {
 				this.showResult = true;
 				this.isLoad = true;
 			});
+	}
+
+	private resetData(): void {
+		this.allDatesInfo.positive_confirmed = 0;
+		this.allDatesInfo.deaths = 0;
+		this.allDatesInfo.intensive_care = 0;
+		this.allDatesInfo.recovered = 0;
 	}
 }
